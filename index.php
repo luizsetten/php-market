@@ -30,7 +30,7 @@
 <div class="login">
 <div class="container">
 
-<form action="home.php">
+<form action="listagem.php">
   <div class="form-group "> 
   <img src="images/logo.png" width="100%">
   </div>

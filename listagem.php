@@ -6,9 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mercado - Listagem de produtos</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style type="text/css">
+    .busca{
+      margin-left: auto ;
+      transform: translateX(-20%);
+
+    }
+    .lupa{
+      font-size:20px ;
+    }
+  </style>
+
 </head>
 
 <body>
+
+
   <div class="container my-3 ">
     <?php include "cabeçalho.php"; ?>
     <?php include "navbar.php"; ?>
@@ -16,7 +29,13 @@
 
     <section>
       <header class="card-header p-3 mb-3">
-        <h2>Listagem de produtos</h2>
+        <div class="row">
+          <h2>&nbsp;Listagem de produtos  </h2>
+          <form action="listagem.php" class="row busca">
+          <input type="text" width="30%"  id="search" aria-describedby="emailHelp">
+          <button type="submit" class="btn btn-primary lupa">&#x2315;</button>
+          </form>
+        </div>
       </header>
       <?php
       if (!isset($_POST['id']) && !empty($_POST['id'])) {
