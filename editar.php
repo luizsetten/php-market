@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Concessionária - Gerenciamento de Veículos</title>
+  <title>Mercado</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://unpkg.com/vanilla-masker@1.1.1/build/vanilla-masker.min.js"></script>
   <script src="js/editar.js" defer></script>
@@ -33,19 +33,10 @@
 
     <form id="formVeiculo" method="POST" action="utils/update.php" class="row" enctype="multipart/form-objeto">
       <input type="hidden" name="id" id="id" value=<?= $objeto->ID ?>>
-      <div class="form-group col-md-6">
-        <!-- <label>Marca:</label>
-        <select name="marca" id="marca" class="form-control custom-select">
-          <option value="">-- Selecionar --</option>
-          <option value="Chevrolet" <?= $objeto->marca == 'Chevrolet' ? ' selected="selected"' : ''; ?>>Chevrolet</option>
-          <option value="Ford" <?= $objeto->marca == 'Ford' ? ' selected="selected"' : ''; ?>>Ford</option>
-          <option value="Hyundai" <?= $objeto->marca == 'Hyundai' ? ' selected="selected"' : ''; ?>>Hyundai</option>
-        </select>
-        <div class="alert-danger w-100 p-2 d-none">Marca é obrigatório</div>
-      </div> -->
-        <div class="form-group col-md-6">
+      <div class="form-group col-md-12">
+        <div class="form-group col-md-12">
           <label>Nome:</label>
-          <input type="text" name="nome" id="nome" class="form-control" value="<?= $objeto->nome ?>" placeholder="Insira o nome do produto">
+          <input type="text" name="nome" id="nome" class="form-control" value="<?= $objeto->Nome ?>" placeholder="Insira o nome do produto">
           <div class="alert-danger w-100 p-2 d-none">Nome inválido</div>
         </div>
         <div class="form-group col-md-6">
@@ -60,7 +51,7 @@
         </div>
         <div class="form-group col-md-12 text-right">
           <button type="submit" class="btn btn-primary">
-            Salvar Veículo
+            Salvar Produto
           </button>
           <button type="reset" class="btn btn-secondary">
             Limpar
