@@ -10,8 +10,12 @@
 
   <style type="text/css">
     .login {
-      margin-top: 20vh;
-      margin-left: 50vw;
+      margin-top: 12vh;
+      display: flex;
+      align-content: center;
+    }
+
+    .container {
       width: 30%;
       border: 1px solid gray;
       border-radius: 10px;

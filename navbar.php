@@ -5,9 +5,6 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Home</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="listagem.php">Listagem</a>
       </li>
       <li class="nav-item">
@@ -15,6 +12,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="sobre.php">Sobre</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.php">Sair</a>
       </li>
     </ul>
   </div>
