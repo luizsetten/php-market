@@ -1,52 +1,7 @@
-INSERT INTO Fornecedor(CNPJ, NomeFantasia, Contato) VALUES ('077.141.879-52', 'Candura', '(19)3434-5614');
-INSERT INTO Fornecedor(CNPJ, NomeFantasia, Contato) VALUES ('558.784.987-88', 'Amália', '(35)3433-4897');
-INSERT INTO Fornecedor(CNPJ, NomeFantasia, Contato) VALUES ('744.55.784-89', 'Elma Chips', '(14)3347-8974');
+INSERT INTO Produto(Nome, PreçoVenda, PreçoCompra) VALUES ('Cheetos Queijo 100gr', 5.95, 4.56);
+INSERT INTO Produto(Nome, PreçoVenda, PreçoCompra) VALUES ('Ruffles 100gr', 7.20, 6.43);
+INSERT INTO Produto(Nome, PreçoVenda, PreçoCompra) VALUES ('Água sanitária 2L', 4.50, 2.20);
 
-INSERT INTO Produto(ID, Nome, Quantidade, PreçoVenda, PreçoCompra, CNPJFornecedor) VALUES (1, 'Cheetos Queijo 100gr', 9, 5.95, 4.56, '744.55.784-89');
-INSERT INTO Produto(ID, Nome, Quantidade, PreçoVenda, PreçoCompra, CNPJFornecedor) VALUES (2, 'Ruffles 100gr', 150, 7.20, 6.43, '744.55.784-89');
-INSERT INTO Produto(ID, Nome, Quantidade, PreçoVenda, PreçoCompra, CNPJFornecedor) VALUES (3, 'Água sanitária 2L', 87, 4.50, 2.20, '077.141.879-52');
-
-INSERT INTO Compra(NrNotaFiscal, PreçoTotal, DataHora, IDUsuário) VALUES (1, 114.75, '21/05/2020 14:03:23', 2);
-INSERT INTO Compra(NrNotaFiscal, PreçoTotal, DataHora, IDUsuário) VALUES (2, 254.60, '27/05/2020 13:20:07', 2);
-INSERT INTO Compra(NrNotaFiscal, PreçoTotal, Datahora, IDUsuário) VALUES (3, 255.45, '02/06/2020 11:40:12', 4);
-
-INSERT INTO Possui(NrNotaFiscal, IDProduto, Quantidade) VALUES (1, 1, 3);
-INSERT INTO Possui(NrNotaFiscal, IDProduto, Quantidade) VALUES (1, 3, 1);
-INSERT INTO Possui(NrNotaFiscal, IDProduto, Quantidade) VALUES (2, 2, 1);
-
-INSERT INTO Funcionário(CPF, Nome, Salário, Cargo, CondiçõesDeSaúde) VALUES ('888.457.987-50', 'Marcelo Campos', 1450.00, 'Caixa', NULL);
-INSERT INTO Funcionário(CPF, Nome, Salário, Cargo, CondiçõesDeSaúde) VALUES ('657.689.152-52', 'Sara Davis', 2100.00, 'Gerente', 'Cardíaca, Remédio Controlado');
-INSERT INTO Funcionário(CPF, Nome, Salário, Cargo, CondiçõesDeSaúde) VALUES ('227.683.342-06', 'Sara Marquis', 1450.00, 'Caixa', 'Pressão Alta, Alergia a Penicilina');
-INSERT INTO Funcionário(CPF, Nome, Salário, Cargo, CondiçõesDeSaúde) VALUES ('118.963.147-98', 'Marc Sanches', 1100.00, 'Repositor', 'Diabetes Tipo B');
-
-INSERT INTO Usuário(ID, CPFFuncionário, Tipo, Senha) VALUES (3, '888.457.987-50', 3, '56sg4d9g8d98rg');
-INSERT INTO Usuário(ID, CPFFuncionário, Tipo, Senha) VALUES (1, '657.689.152-52', 2, 'cs8f5ef34f6v43x');
-INSERT INTO Usuário(ID, CPFFuncionário, Tipo, Senha) VALUES (4, '554.187.693-45', 3, '365t4v13v64t16');
-
-SELECT Produto.Nome, Produto.PreçoVenda, Possui.Quantidade, Compra.PreçoTotal
-FROM Compra, Produto, Possui
-WHERE  Possui.NrNotaFiscal = 1 AND Possui.NrNotaFiscal = Compra.NrNotaFiscal AND Possui.IDProduto = Produto.ID;
-
-SELECT *
-FROM Funcionário AS F
-JOIN Usuário AS U ON F.CPF = U.CPFFuncionário;
-
-SELECT Fornecedor.Contato, Fornecedor.NomeFantasia, Produto.Nome, Produto.Quantidade
-FROM Fornecedor, Produto
-WHERE Produto.Quantidade<10 AND Fornecedor.CNPJ = Produto.CNPJFornecedor;
-
-SELECT Funcionário.Nome, Funcionário.CPF, Funcionário.CondiçõesDeSaúde
-FROM Funcionário
-WHERE Funcionário.Nome LIKE 'Sara%';
-
-
-CREATE VIEW Repor AS
-SELECT Fornecedor.Contato, Fornecedor.NomeFantasia, Produto.Nome, Produto.Quantidade
-FROM Fornecedor, Produto
-WHERE Produto.Quantidade<10 AND Fornecedor.CNPJ = Produto.CNPJFornecedor;
-
-SELECT * FROM Repor LIMIT 3;
-
-SELECT Produto.Nome, Produto.PreçoVenda
-FROM Produto
-WHERE Produto.Nome LIKE '%cheetos%';
+INSERT INTO Usuário(Email, Senha) VALUES ('auguemeeee@email.com', '56sg4d9g8d98rg');
+INSERT INTO Usuário(Email, Senha) VALUES ('augueeeem@email.com', 'cs8f5ef34f6v43x');
+INSERT INTO Usuário(Email, Senha) VALUES ('augusdfsfem@email.com', '365t4v13v64t16');
