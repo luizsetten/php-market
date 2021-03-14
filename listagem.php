@@ -30,14 +30,15 @@
     <section>
       <header class="card-header p-3 mb-3">
         <div class="row">
-          <h2>&nbsp;Listagem de produtos  </h2>
-          <form action="listagem.php" class="row busca">
-          <input type="text" width="30%"  id="search" aria-describedby="emailHelp">
+          <h2>&nbsp;Listagem de produtos </h2>
+          <form method="POST" class="row busca">
+          <input type="text" width="30%"  id="busca" name="busca" value="<?= $termo ?? '' ?>" aria-describedby="emailHelp">
           <button type="submit" class="btn btn-primary lupa">&#x2315;</button>
           </form>
         </div>
       </header>
       <?php
+
       if (!isset($_POST['id']) && !empty($_POST['id'])) {
         $idDelete = $_POST['id'];
         $queryDelete = sprintf("DELETE FROM Produto WHERE id=$idDelete");
@@ -46,13 +47,24 @@
         return;
       }
 
-      $query = sprintf("SELECT * FROM Produto"); //Não retorna nada pq o banco ta vazio
-      $dados = mysqli_query($con, $query) or die(mysqli_error($con));
-      $total = mysqli_num_rows($dados);
+      if (isset($_POST['busca'])){
+        $termo = filter_var($_POST['busca'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+        if (!empty($termo)) {
+            $query = sprintf("SELECT * FROM Produto WHERE Nome LIKE '%$termo%'"); //Não retorna nada pq o banco ta vazio
+            $dados = mysqli_query($con, $query) or die(mysqli_error($con));
+            $total = mysqli_num_rows($dados);
+        }
+      }
+      else{
+          $query = sprintf("SELECT * FROM Produto"); //Não retorna nada pq o banco ta vazio
+          $dados = mysqli_query($con, $query) or die(mysqli_error($con));
+          $total = mysqli_num_rows($dados);
+      }
       ?>
       <?php
 
       for ($i = 0; $i < $total; $i++) {
+
         $linha = mysqli_fetch_assoc($dados);
         $id = $linha['ID'];
         $nome = $linha['Nome'];
