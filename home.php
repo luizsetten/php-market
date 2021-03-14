@@ -14,7 +14,6 @@
     <?php include "./utils/mysql_connect.php"; ?>
 
     <?php include "navbar.php"; ?>
-    <?php include "utils/verify_logged.php"; ?>
 
     <section class="card">
       <header class="card-header p-3">
