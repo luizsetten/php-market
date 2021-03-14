@@ -35,7 +35,7 @@
 
       <form action="./utils/login.php" method="POST">
         <div class="form-group ">
-          <img src="images/logo.png" width="100%">
+          <img src="images/logo.png" width="100%" style="border-radius: 30px; margin-top: 1em;">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email</label>
