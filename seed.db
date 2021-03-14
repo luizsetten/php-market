@@ -5,3 +5,4 @@ INSERT INTO Produto(Nome, PreçoVenda, PreçoCompra) VALUES ('Água sanitária 2
 INSERT INTO Usuário(Email, Senha) VALUES ('auguemeeee@email.com', '56sg4d9g8d98rg');
 INSERT INTO Usuário(Email, Senha) VALUES ('augueeeem@email.com', 'cs8f5ef34f6v43x');
 INSERT INTO Usuário(Email, Senha) VALUES ('augusdfsfem@email.com', '365t4v13v64t16');
+INSERT INTO Usuário(Email, Senha) VALUES ('luiz@email.com', '123456');
