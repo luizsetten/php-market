@@ -33,17 +33,17 @@
   <div class="login">
     <div class="container">
 
-      <form action="./utils/login.php">
+      <form action="./utils/login.php" method="POST">
         <div class="form-group ">
           <img src="images/logo.png" width="100%">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <input type="email" class="form-control" name="Email" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Senha</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <input type="password" class="form-control" name="Senha" id="exampleInputPassword1">
         </div>
         <div class="button">
           <button type="submit" class="btn btn-primary">Entrar</button>
