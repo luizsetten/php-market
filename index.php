@@ -6,33 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Concessionária - Gerenciamento de Veículos</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  
+  <style type="text/css">
+    .login {
+        margin-top: 20vh;
+        margin-left: 50vw;
+        width: 30% ;
+        border: 1px solid gray;
+        border-radius: 10px ;
+    }
+    .button{
+        margin-top: 20px ;
+        text-align:center;
+    }
+    .spaceX{
+        height: 80px;
+    }
+  </style>
 </head>
-
 <body>
-  <div class="container my-3 ">
-    <?php include "cabeçalho.php"; ?>
-    <?php include "./utils/mysql_connect.php"; ?>
-    <?php include "./login.php"; ?>
 
-    <?php include "navbar.php"; ?>
+<div class="login">
+<div class="container">
 
-    <section class="card">
-      <header class="card-header p-3">
-        <h2>Bem-vindo(a) à nossa concessionária!</h2>
-      </header>
-      <div class="card-body p-3">
-        <p>Estamos prontos para te receber e realizar o seu sonho do carro próprio!</p>
-        <p>Horário de funcionamento:</p>
-        <p>seg. à sex. - 10h às 18h</p>
-        <p>sábados - 12h às 16h</p>
-        <p>Endereço: Rua Pacaembu, 658 - Piracicaba, SP | Contato: (19) 3434-5522 | WhatsApp: (19) 99888-5522</p>
-      </div>
-    </section>
-
-    <hr>
-    <?php include "footer.php"; ?>
+<form action="home.php">
+  <div class="form-group "> 
+  <img src="images/logo.png" width="100%">
   </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Senha</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="button">
+  <button type="submit" class="btn btn-primary">Entrar</button>
+  </div>
+  <div class="spaceX">
+  </div>
+</form>
+</div>
+</div>
 
 </body>
-
 </html>
