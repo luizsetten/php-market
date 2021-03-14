@@ -14,7 +14,7 @@ print_r($result);
 if (mysqli_num_rows($result) > 0) {
   $_SESSION['Email'] = $login;
   $_SESSION['Senha'] = $senha;
-  header('location: ../home.php');
+  header('location: ../listagem.php');
 } else {
   unset($_SESSION['login']);
   unset($_SESSION['senha']);
