@@ -7,13 +7,14 @@
   <title>Mercado - Listagem de produtos</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style type="text/css">
-    .busca{
-      margin-left: auto ;
+    .busca {
+      margin-left: auto;
       transform: translateX(-20%);
 
     }
-    .lupa{
-      font-size:20px ;
+
+    .lupa {
+      font-size: 20px;
     }
   </style>
 
@@ -32,8 +33,8 @@
         <div class="row">
           <h2>&nbsp;Listagem de produtos </h2>
           <form method="POST" class="row busca">
-          <input type="text" width="30%"  id="busca" name="busca" value="<?= $termo ?? '' ?>" aria-describedby="emailHelp">
-          <button type="submit" class="btn btn-primary lupa">&#x2315;</button>
+            <input type="text" width="30%" id="busca" name="busca" value="<?= $termo ?? '' ?>" aria-describedby="emailHelp">
+            <button type="submit" class="btn btn-primary lupa">&#x2315;</button>
           </form>
         </div>
       </header>
@@ -46,19 +47,18 @@
         print($removed);
         return;
       }
+      $total = 0;
 
-      if (isset($_POST['busca'])){
+      if (isset($_POST['busca'])) {
         $termo = filter_var($_POST['busca'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
         if (!empty($termo)) {
-            $query = sprintf("SELECT * FROM Produto WHERE Nome LIKE '%$termo%'"); //Não retorna nada pq o banco ta vazio
-            $dados = mysqli_query($con, $query) or die(mysqli_error($con));
-            $total = mysqli_num_rows($dados);
-        }
-      }
-      else{
-          $query = sprintf("SELECT * FROM Produto"); //Não retorna nada pq o banco ta vazio
-          $dados = mysqli_query($con, $query) or die(mysqli_error($con));
+          $dados = $con->query("Select * from Produto Where Nome Like '%" . $termo . "%'");
           $total = mysqli_num_rows($dados);
+        }
+      } else {
+        $query = sprintf("SELECT * FROM Produto"); //Não retorna nada pq o banco ta vazio
+        $dados = mysqli_query($con, $query) or die(mysqli_error($con));
+        $total = mysqli_num_rows($dados);
       }
       ?>
       <?php
