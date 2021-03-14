@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Concessionária - Gerenciamento de Veículos</title>
+  <title>Mercado - Listagem de produtos</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -16,7 +16,7 @@
 
     <section>
       <header class="card-header p-3 mb-3">
-        <h2>Veja os nossos veículos</h2>
+        <h2>Listagem de produtos</h2>
       </header>
       <?php
       if (!isset($_POST['id']) && !empty($_POST['id'])) {
@@ -27,8 +27,7 @@
         return;
       }
 
-      $query = sprintf("SELECT * FROM carros"); //Não retorna nada pq o banco ta vazio
-      //$dados = mysqli_query($con, $query2) or die(mysqli_error($con));
+      $query = sprintf("SELECT * FROM Produto"); //Não retorna nada pq o banco ta vazio
       $dados = mysqli_query($con, $query) or die(mysqli_error($con));
       $total = mysqli_num_rows($dados);
       ?>
@@ -36,34 +35,19 @@
 
       for ($i = 0; $i < $total; $i++) {
         $linha = mysqli_fetch_assoc($dados);
-        // echo '<pre>';
-        // print_r($linha);
-        // echo '</pre>';
-        $id = $linha['id'];
-        $marca = $linha['marca'];
-        $preco = $linha['preco'];
-        $cor = $linha['cor'];
-        $descricao = $linha['descricao'];
-        $modelo = $linha['modelo'];
-        $foto = $linha['foto'];
-        $ano = $linha['ano'];
-        // print($preco);
+        $id = $linha['ID'];
+        $nome = $linha['Nome'];
+        $PreçoVenda = $linha['PreçoVenda'];
+        $PreçoCompra = $linha['PreçoCompra'];
       ?>
         <div class="card p-2 my-3">
           <div class="row">
-            <div class="col-md-3">
-              <img src="<?= 'data:image/jpeg;base64,' . base64_encode($foto) ?>" class="img-thumbnail img-fluid">
-            </div>
-            <div class="col-md-9 p-3">
-              <h3><?= $modelo ?></h3>
+            <div class="col-md-12 p-3">
+              <h3><?= $nome ?></h3>
               <p>
-                <strong>Marca:</strong> <?= $marca ?><br>
-                <strong>Ano:</strong> <?= $ano ?><br>
-                <strong>Preço:</strong> R$<?php echo number_format($preco, 2, ',', '.'); ?><br>
-                <strong>Cor:</strong> <?= $cor ?>
-              </p>
-              <p>
-                <?= $descricao ?>
+                <strong>Preço de Venda:</strong> <?= $PreçoVenda ?><br>
+                <strong>Preço de Compra:</strong> <?= $PreçoCompra ?><br>
+                <strong>Preço:</strong> R$<?php echo number_format($PreçoCompra, 2, ',', '.'); ?><br>
               </p>
               <div class="row justify-content-end">
                 <div class="col-xs">
