@@ -48,6 +48,18 @@
         <p>Tenho conhecimentos em: Node.js, ReactJS, React Native, Git, Kotlin e Scrum.</p>
         <p>Atualmente estou estudando:  Kotlin, uma linguagem de programação multiplataforma derivada do Java.</p>
       </div>
+      <div class="card-body p-3">
+      <img src="./images/yuri.jpg" class="img-thumbnail float-left mr-3" style="width: 200px; height: 200px;">
+        <p>
+          <strong>Nome:</strong> Yuri Pierobon Suheishi Suhet da Silva <br>
+          <strong>E-mail:</strong> yuri.suhet@gmail.com<br>
+          <strong>Curso:</strong> Engenharia de computação <br>
+          <strong>Período:</strong> 8°Período
+        </p>
+        <strong>MINICURRÍCULO:</strong>
+        <p>Aluno do IFSULDEMINAS - Campus poços de Caldas e técnico em informático pela Colégio Divino Salvador Jundiai.</p>
+        <p>Atualmente estou estudando:  Angular, NodeJS e NextJS</p>
+      </div>
     </section>
 
     <hr>
