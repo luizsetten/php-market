@@ -11,7 +11,6 @@
   <style type="text/css">
     .login {
       margin-top: 12vh;
-      display: flex;
       align-content: center;
     }
 
@@ -57,7 +56,12 @@
       </form>
     </div>
   </div>
+  <?php
+  if (!isset($_POST['erro']) && !empty($_POST['erro'])) {
 
+      }
+
+  ?>
 </body>
 
 </html>
