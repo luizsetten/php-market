@@ -1,36 +1,20 @@
-const form = document.querySelector('form#formVeiculo');
-const inputAno = form.querySelector('input#ano');
-const inputPreco = form.querySelector('input#preco');
+const form = document.querySelector('form#formProduto');
+const inputPreco = form.querySelector('input#preco-compra');
+const inputPreco2 = form.querySelector('input#preco-venda');
 
 // Aplicamos as máscaras
-VMasker(inputAno).maskPattern('9999');
 VMasker(inputPreco).maskMoney();
+VMasker(inputPreco2).maskMoney();
 
 // quando o formulário for submetido
 form.addEventListener('submit', () => {
     event.preventDefault(); // bloqueia o recarregamento
-    const inputMarca = form.querySelector('#marca');
-    const inputModelo = form.querySelector('#modelo');
-    const inputCor = form.querySelector('#cor');
-    const inputFoto = form.querySelector('#foto');
-    const inputDescricao = form.querySelector('#descricao');
+    const inputNome = form.querySelector('#nome');
 
-    if (validarCampos(inputMarca, inputModelo, inputAno, inputPreco, inputCor, inputDescricao, inputFoto)) {
-        // cadastra o veículo
-        // const listaDeCarros = JSON.parse(localStorage.getItem('listaCarrosStorage')) ?? [];
-        // const carro = {
-        //     marca: inputMarca.value,
-        //     modelo: inputModelo.value,
-        //     ano: inputAno.value,
-        //     preco: inputPreco.value,
-        //     cor: inputCor.value,
-        //     foto: inputFoto.value,
-        //     descricao: inputDescricao.value
-        // }
-        // listaDeCarros.push(carro);
-        // localStorage.setItem('listaCarrosStorage', JSON.stringify(listaDeCarros));
-        // alert('Carro cadastrado com sucesso!');
+    if (validarCampos(inputNome, inputPreco, inputPreco2)) {
         inputPreco.value = Number(inputPreco.value.replaceAll('.', '').replaceAll(',', '.'));
+        inputPreco2.value = Number(inputPreco2.value.replaceAll('.', '').replaceAll(',', '.'));
+        console.log(inputPreco.value, inputPreco2.value)
         form.submit();
     }
 });
@@ -46,9 +30,8 @@ function validarCampos(...campos)
         console.log(campo)
         if (
             campo.value.length <= 1 ||
-            campo.id == 'ano' && campo.value < 1900 ||
-            campo.id == 'preco' && corrigeNumero(campo.value) > 100000000
-            || campo.id == 'foto' && campo.files.length === 0
+            campo.id == 'preco-compra' && corrigeNumero(campo.value) > 100000000 ||
+            campo.id == 'preco-venda' && corrigeNumero(campo.value) > 100000000
         ) {
             campo.nextElementSibling.classList.remove('d-none');
             status = false;

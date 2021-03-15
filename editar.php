@@ -31,7 +31,7 @@
     $objeto = mysqli_fetch_object($dados);
     ?>
 
-    <form id="formVeiculo" method="POST" action="utils/update.php" class="row" enctype="multipart/form-objeto">
+    <form id="formProduto" method="POST" action="utils/update.php" class="row" enctype="multipart/form-objeto">
       <input type="hidden" name="id" id="id" value=<?= $objeto->ID ?>>
       <div class="form-group col-md-12">
         <label>Nome:</label>

@@ -1,21 +1,19 @@
-const form = document.querySelector('form#formVeiculo');
-const inputAno = form.querySelector('input#ano');
-const inputPreco = form.querySelector('input#preco');
+const form = document.querySelector('form#formProduto');
+const inputPreco = form.querySelector('input#preco-compra');
+const inputPreco2 = form.querySelector('input#preco-venda');
 
 // Aplicamos as máscaras
-VMasker(inputAno).maskPattern('9999');
 VMasker(inputPreco).maskMoney();
+VMasker(inputPreco2).maskMoney();
 
 // quando o formulário for submetido
 form.addEventListener('submit', () => {
     event.preventDefault(); // bloqueia o recarregamento
-    const inputMarca = form.querySelector('#marca');
-    const inputModelo = form.querySelector('#modelo');
-    const inputCor = form.querySelector('#cor');
-    const inputDescricao = form.querySelector('#descricao');
+    const inputNome = form.querySelector('#nome');
 
-    if (validarCampos(inputMarca, inputModelo, inputAno, inputPreco, inputCor, inputDescricao)) {
+    if (validarCampos(inputNome, inputPreco, inputPreco2)) {
         inputPreco.value = Number(inputPreco.value.replaceAll('.', '').replaceAll(',', '.'));
+        inputPreco2.value = Number(inputPreco2.value.replaceAll('.', '').replaceAll(',', '.'));
         form.submit();
     }
 });
@@ -28,10 +26,11 @@ function validarCampos(...campos)
     }
 
     campos.forEach(campo => {
+        console.log(campo)
         if (
             campo.value.length <= 1 ||
-            campo.id == 'ano' && campo.value < 1900 ||
-            campo.id == 'preco' && corrigeNumero(campo.value) > 100000000
+            campo.id == 'preco-compra' && corrigeNumero(campo.value) > 100000000 ||
+            campo.id == 'preco-venda' && corrigeNumero(campo.value) > 100000000
         ) {
             campo.nextElementSibling.classList.remove('d-none');
             status = false;

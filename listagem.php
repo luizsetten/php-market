@@ -76,9 +76,8 @@
             <div class="col-md-12 p-3">
               <h3><?= $nome ?></h3>
               <p>
-                <strong>Preço de Venda:</strong> <?= $PreçoVenda ?><br>
-                <strong>Preço de Compra:</strong> <?= $PreçoCompra ?><br>
-                <strong>Preço:</strong> R$<?php echo number_format($PreçoCompra, 2, ',', '.'); ?><br>
+                <strong>Preço de Venda:</strong>R$<?= number_format($PreçoVenda, 2, ',', '.'); ?><br>
+                <strong>Preço de Compra:</strong>R$<?= number_format($PreçoCompra, 2, ',', '.'); ?><br>
               </p>
               <div class="row justify-content-end">
                 <div class="col-xs">

@@ -2,12 +2,11 @@
 
 <?php
 
-$Nome = $_POST['Nome'];
-$PreçoVenda = $_POST['PreçoVenda'];
-$PreçoCompra = $_POST['PreçoCompra'];
+$Nome = $_POST['nome'];
+$PreçoVenda = $_POST['preco-venda'];
+$PreçoCompra = $_POST['preco-compra'];
 
-$query = $con->query("INSERT INTO Produto (Nome, PreçoVenda, PreçoCompra) VALUES ({$Nome}, {$PreçoVenda}, {$PreçoCompra})");
-
+$query = $con->query("INSERT INTO Produto (Nome, PreçoVenda, PreçoCompra) VALUES ('$Nome', {$PreçoVenda}, {$PreçoCompra})");
 header("Location: ../listagem.php");
 die();
 ?>
