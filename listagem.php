@@ -62,6 +62,7 @@
       }
       ?>
       <?php
+      print_r($_SESSION);
 
       for ($i = 0; $i < $total; $i++) {
 
@@ -75,6 +76,7 @@
           <div class="row">
             <div class="col-md-12 p-3">
               <h3><?= $nome ?></h3>
+
               <p>
                 <strong>Preço de Venda:</strong>R$<?= number_format($PreçoVenda, 2, ',', '.'); ?><br>
                 <strong>Preço de Compra:</strong>R$<?= number_format($PreçoCompra, 2, ',', '.'); ?><br>

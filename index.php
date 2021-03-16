@@ -32,6 +32,10 @@
 </head>
 
 <body>
+  <?php
+  session_start();
+  session_destroy();
+  ?>
 
   <div class="login">
     <div class="container">
@@ -58,8 +62,7 @@
   </div>
   <?php
   if (!isset($_POST['erro']) && !empty($_POST['erro'])) {
-
-      }
+  }
 
   ?>
 </body>

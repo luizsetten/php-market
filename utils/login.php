@@ -22,5 +22,4 @@ if (mysqli_num_rows($result) > 0) {
   unset($_SESSION['login']);
   unset($_SESSION['senha']);
   header('location: ../error.php');
-  
 }

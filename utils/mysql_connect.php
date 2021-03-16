@@ -3,6 +3,6 @@
 $host = "localhost";
 $db   = "mercado";
 $user = "root";
-$pass = "";
+$pass = "password";
 // conecta ao banco de dados
 $con = mysqli_connect($host, $user, $pass, $db) or trigger_error(mysqli_error($con), E_USER_ERROR);
