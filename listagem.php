@@ -44,7 +44,6 @@
         $idDelete = $_POST['id'];
         $queryDelete = sprintf("DELETE FROM Produto WHERE id=$idDelete");
         $removed = mysqli_query($con, $queryDelete) or die(mysqli_error($con));
-        print($removed);
         return;
       }
       $total = 0;
@@ -62,8 +61,6 @@
       }
       ?>
       <?php
-      print_r($_SESSION);
-
       for ($i = 0; $i < $total; $i++) {
 
         $linha = mysqli_fetch_assoc($dados);
